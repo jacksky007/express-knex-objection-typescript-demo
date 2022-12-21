@@ -1,0 +1,17 @@
+.comments-pagination
+  if comments.pageId > comments.totalPages
+    p.empty No comment on page #{ comments.pageId }. There are #{ comments.totalPages } pages available.
+  else
+    if comments.pageId > 1
+      a.prev(
+        href=getPostCommentsPageUrl({ postId: (post && post.id) || comments.postId, commentsPageId: comments.pageId - 1 })
+      ) Prev Page
+    else
+      span.prev(title='This is the first page.') Prev Page
+    span= comments.pageId
+    if comments.pageId < comments.totalPages
+      a.next(
+        href=getPostCommentsPageUrl({ postId: (post && post.id) || comments.postId, commentsPageId: comments.pageId + 1 })
+      ) Next Page
+    else
+      span.next(title='No more pages.') Next Page

@@ -1,0 +1,7 @@
+li
+  p= comment.content
+  footer.metadata
+    | by:
+    span.author #{ comment.author.name }
+    span.created-at #{ comment.createdAt } UTC
+    span.datetime-from-now (#{ formatDatetimeFromNow(comment.createdAt) })

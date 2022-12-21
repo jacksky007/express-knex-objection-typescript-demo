@@ -1,0 +1,27 @@
+extends ../layouts/default
+
+block content
+  article#posts-show
+    header
+      h1= post.title
+      p.metadata
+        | by:
+        span.author= post.author.name
+        | at
+        span.created-at #{ post.createdAt } UTC
+        span.datetime-form-now (#{ formatDatetimeFromNow(post.createdAt) })
+
+    // do not escape HTML in post content
+    main!= post.content
+
+    section.comments
+      h2 Comments
+
+      include partials/comments-pagination
+
+      ol.comments-list
+        each comment in comments.items
+          include partials/comment-item
+
+block append scripts
+  script(src='/post.js')

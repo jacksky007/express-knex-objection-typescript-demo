@@ -1,0 +1,14 @@
+html
+  head
+  meta(charset='utf-8')
+  title= pageTitle
+  block meta
+    // add other meta tags as needed
+  block styles
+    link(rel='stylesheet', href='/app.css')
+
+  body
+    block content
+      // main content goes here
+    block scripts
+      script(src='/app.js')
