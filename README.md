@@ -26,7 +26,7 @@ This a demo project built using Express.js, Knex.js, Objection.js, Typescript.
 1. run `npx knex --knexfile db/knexfile.ts migrate:latest` to generate databse file and tables
 2. run `npx knex --knexfile db/knexfile.ts seed:run` to insert initial data in databse
 3. run `npm run:dev` to both start dev server and watching tasks for frontend development
-4. visit `http://localhost:3000/posts`, the it will be redirected to the first post page `http://localhost:3000/posts/{the id of first page}`
+4. visit `http://localhost:3000/posts`, then it will be redirected to the first post page `http://localhost:3000/posts/{the id of first page}`
 
 ### Tips for development
 * While in development enviroment, both changes of backend and frontend files will trigger corresponding task. So developer need not restart the backend server or frontend building task. Just refresh page after change any file either backend part or frontend part and the change will be seen.
@@ -40,11 +40,14 @@ This a demo project built using Express.js, Knex.js, Objection.js, Typescript.
 2. run `NODE_ENV=production npx knex --knexfile db/knexfile.ts seed:run` to insert initial data in database
 3. run `npm run prod:build`, this will transpile backend Typescript files into JavaScript files then put them into `build` dir, and build frontend files into `build/public` dir
 4. run `npm run prod:start-server` to start the server in production enviroment
+5: visit `http://localhost:3001/posts`, then it will be redirected to the first post page `http://localhost:3001/posts/{the id of first page}`
 
 ### Tips for production envirement
 * To stop server, run `npm run prod:stop-server`
+* To run server on other port, run `PORT=xxx npm run prod:start-server` or modify `ecosystem.config.js` setting `PORT` of `PROD` app
 
 ## To be improved
+* handle server-side exception, such as non-existent postId
 * add tests
 * add ESLint
 * add logger
